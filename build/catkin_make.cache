@@ -1,2 +1,0 @@
-signal_processing
--DCATKIN_DEVEL_PREFIX=/home/mateusz/Pulpit/Robotic_Environment/lab10_ros_sigal_processing/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mateusz/Pulpit/Robotic_Environment/lab10_ros_sigal_processing/catkin_ws/install -G Unix Makefiles

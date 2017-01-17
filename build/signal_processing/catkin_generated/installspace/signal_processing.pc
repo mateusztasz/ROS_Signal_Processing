@@ -1,8 +1,0 @@
-prefix=/home/mateusz/Pulpit/Robotic_Environment/lab10_ros_sigal_processing/catkin_ws/install
-
-Name: signal_processing
-Description: Description of signal_processing
-Version: 0.0.0
-Cflags: -I/home/mateusz/Pulpit/Robotic_Environment/lab10_ros_sigal_processing/catkin_ws/install/include
-Libs: -L/home/mateusz/Pulpit/Robotic_Environment/lab10_ros_sigal_processing/catkin_ws/install/lib 
-Requires: message_runtime roscpp rospy std_msgs
