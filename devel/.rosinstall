@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/mateusz/Pulpit/Robotic_Environment/lab10_ros_sigal_processing/catkin_ws/devel/setup.sh

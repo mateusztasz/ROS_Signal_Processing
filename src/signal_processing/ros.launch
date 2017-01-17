@@ -1,0 +1,54 @@
+<launch>
+    <group ns="loggers">
+        <node pkg='rqt_plot' name='rqt_plot' type='rqt_plot'
+              args="-e  /signals/gen/value
+                        /signals/result/value"></node>
+    </group>
+
+    <group ns="signals">
+
+        <node name="Generator" pkg="signal_processing" type="generator.py">
+            <param name="omega" value="1"/>
+            <param name="shift" value="0"/>
+            <remap from="output_topic" to="gen"/>
+        </node>
+
+        <node name="Pow1" pkg="signal_processing" type="power.py">
+            <param name="pow" value="2"/>
+            <remap from="input_topic" to="gen"/>
+            <remap from="output_topic" to="pow1"/>
+        </node>
+
+        <node name="Derive1" pkg="signal_processing" type="derivative.py">
+            <remap from="input_topic" to="pow1"/>
+            <remap from="output_topic" to="der1"/>
+        </node>
+
+        <node name="Pow2" pkg="signal_processing" type="power.py">
+            <param name="pow" value="2"/>
+            <remap from="input_topic" to="der1"/>
+            <remap from="output_topic" to="pow2"/>
+        </node>
+
+        <node name="Derive2" pkg="signal_processing" type="derivative.py">
+            <remap from="input_topic" to="pow2"/>
+            <remap from="output_topic" to="der2"/>
+        </node>
+
+        <node name="Amp" pkg="signal_processing" type="amplification.py">
+            <param name="amp" value="0.5"/>
+            <remap from="input_topic" to="der2"/>
+            <remap from="output_topic" to="result"/>
+        </node>
+
+        <node name="m" pkg="signal_processing" type="multiplication.py">
+            <remap from="input_topic1" to="gen"/>
+            <remap from="input_topic2" to="gen"/>
+            <remap from="output_topic" to="mult"/>
+        </node>
+
+
+    </group>
+
+
+</launch>
